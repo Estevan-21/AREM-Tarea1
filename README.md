@@ -1,4 +1,5 @@
-# TAREA 1 AREM
+# CALCULO DE MEDIA Y DESVIACION ESTANDAR DE UNA CANTIDAD DE NUMEROS
+## ARQUITECTURAS EMPRESARIALES
 
 ### Nota: Hay que editar la ruta del archivo que se va a leer, esto se hace en el método main de la clase Tarea.
 
