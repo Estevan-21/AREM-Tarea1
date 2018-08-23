@@ -7,6 +7,7 @@ import java.io.IOException;
 import static java.lang.Math.sqrt;
 import java.util.ArrayList;
 import java.util.List;
+import static spark.Spark.*;
 
 
 /**
@@ -17,28 +18,45 @@ import java.util.List;
  */
 public class Tarea {
     static ListaDinamica lista=new ListaDinamica();
-    
+    static double[] numeros={15.0,69.9,6.5,22.4,28.4,65.9,19.4,198.7,38.8,138.2};     
     
     
     /**
-     * Método Principal del programa
+     * MÃ©todo Principal del programa
      * @param args args
      * @throws  java.io.IOException excepcion
      */
     public static void main(String[] args) throws IOException {
-        leer("C:/Users/Estevan/Desktop/archivo2.txt");        
+        //leer("C:/Users/Estevan/Desktop/archivo2.txt");      
+        leer();
+        get("/hello", (req, res) -> "La media de los datos encontrados en el archivo es: ");
         System.out.println("La media de los datos encontrados en el archivo es: "+calculoMedia(lista));
         System.out.println("La desviacion estandar de los datos encontrados en el archivo es: "+calculoDesviacion(lista));
     }
-    
-   
     /**
-     * Lee los números de un archivo .txt y los almacena en una lista enlazada
+     * Lee los nÃºmeros de una lista y los almacena en una lista enlazada
+     * 
+     * 
+     */
+    public static void leer(){
+        for(int i=0;i<numeros.length;i++){
+            lista.addLast(numeros[i]);
+        }
+    }
+    
+    static int getPort() {
+        if (System.getenv("PORT") != null) {
+            return Integer.parseInt(System.getenv("PORT"));
+        }
+        return 4567; //returns default port if heroku-port isn't set(i.e. on localhost)
+    }
+    /**
+     * Lee los nÃºmeros de un archivo .txt y los almacena en una lista enlazada
      * @throws java.io.IOException IoException
      * @throws java.io.FileNotFoundException IoException
      * @param archivo archivo
-     */
-    public static void leer(String archivo) throws FileNotFoundException, IOException {
+     *
+    public static void leer() throws FileNotFoundException, IOException {
         String cadena; 
        
         FileReader f = new FileReader(archivo);
@@ -48,14 +66,14 @@ public class Tarea {
             lista.addLast(a);
         }
         b.close();
-    }   
+    }  */ 
     
     
     /**
-     * Calcula la media de los números que se encuentran en una lista enlazada
+     * Calcula la media de los nÃºmeros que se encuentran en una lista enlazada
      *
      * @param lista lista
-     * @return media de los números
+     * @return media de los nÃºmeros
      */
     public static float calculoMedia(ListaDinamica lista){
         float media=0;
@@ -69,10 +87,10 @@ public class Tarea {
     }
     
     /**
-     * Calcula la desviacion estandar de los números que se encuentran en una lista enlazada
+     * Calcula la desviacion estandar de los nÃºmeros que se encuentran en una lista enlazada
      *
      * @param lista lista
-     * @return desviacion estandar de los números
+     * @return desviacion estandar de los nÃºmeros
      */
     public static float calculoDesviacion(ListaDinamica lista){ 
         float sumatoria=0;
