@@ -26,9 +26,10 @@ public class Tarea {
      * @param args args
      * @throws  java.io.IOException excepcion
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         //leer("C:/Users/Estevan/Desktop/archivo2.txt");      
         leer();
+        port(getPort());
         get("/hello", (req, res) -> "La media de los datos encontrados en el archivo es: ");
         System.out.println("La media de los datos encontrados en el archivo es: "+calculoMedia(lista));
         System.out.println("La desviacion estandar de los datos encontrados en el archivo es: "+calculoDesviacion(lista));

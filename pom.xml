@@ -6,20 +6,34 @@
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>TareaMvnGit</name>
+  <url>http://maven.apache.org</url>
   <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
-    <!-- library dependencies -->
-    <dependencies>
-        <dependency>
+   </properties>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
             <groupId>com.sparkjava</groupId>
             <artifactId>spark-core</artifactId>
             <version>2.7.2</version>
-        </dependency>
-    </dependencies>
-    <!-- build configuration -->
+    </dependency>
+  </dependencies>
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </reporting>
+   <!-- build configuration -->
     <build>
         <plugins>
             <plugin>
@@ -42,7 +56,7 @@
                         <goals><goal>copy-dependencies</goal></goals>
                     </execution>
                 </executions>
-            </plugin>            
+            </plugin>
         </plugins>
     </build>
 </project>
